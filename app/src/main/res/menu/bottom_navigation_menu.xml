@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationHome"
+        android:title="Beranda"
+        android:icon="@drawable/lock_icon_vector"/>
+    <item
+        android:id="@+id/navigationStudy"
+        android:title="Belajar"
+        android:icon="@drawable/lock_icon_vector"/>
+    <item
+        android:id="@+id/navigationWallet"
+        android:title="Dompet"
+        android:icon="@drawable/lock_icon_vector"/>
+    <item
+        android:id="@+id/navigationAccount"
+        android:title="Akun"
+        android:icon="@drawable/lock_icon_vector"/>
+</menu>

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
 abstract class BaseFragment<T:ViewBinding> : Fragment() {
-    var _binding :T? = null
+    private var _binding :T? = null
     protected val binding get() = _binding!!
 
     abstract fun inflateBinding() : T

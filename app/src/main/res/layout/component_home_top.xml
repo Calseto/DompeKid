@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="22dp"
+    android:background="@drawable/bg_container_top_home">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Tabungan yang kamu punya saat ini :)"
+        android:textColor="@color/blue"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/ivCurentBalanceIconHome"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/lock_icon_vector"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/tvCurrentBalanceHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Rp.500.0000"
+        android:textColor="@color/blue"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCurentBalanceIconHome"
+        app:layout_constraintStart_toEndOf="@+id/ivCurentBalanceIconHome"
+        app:layout_constraintTop_toTopOf="@+id/ivCurentBalanceIconHome" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="30dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Kamu Sudah Menabung"
+        android:textColor="@color/green"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCurrentBalanceHome" />
+
+    <ImageView
+        android:id="@+id/ivCurentSavingIconHome"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/lock_icon_vector"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <TextView
+        android:id="@+id/tvCurrentSavingHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Rp.500.0000"
+        android:textColor="@color/green"
+        android:textSize="19sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCurentSavingIconHome"
+        app:layout_constraintStart_toEndOf="@+id/ivCurentSavingIconHome"
+        app:layout_constraintTop_toTopOf="@+id/ivCurentSavingIconHome" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_semibold"
+        android:layout_marginStart="30dp"
+        android:text="Uang Saku"
+        android:textColor="@color/red"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/ivCurentAllowanceIconHome"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/lock_icon_vector"
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+    <TextView
+        android:id="@+id/tvCurrentAllowanceHome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:text="Rp.500.0000"
+        android:textColor="@color/red"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivCurentAllowanceIconHome"
+        app:layout_constraintStart_toEndOf="@+id/ivCurentAllowanceIconHome"
+        app:layout_constraintTop_toTopOf="@+id/ivCurentAllowanceIconHome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:text="Minggu ini"
+        android:textColor="@color/blue"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/ivCurentSavingIconHome"
+        app:layout_constraintTop_toBottomOf="@+id/ivCurentSavingIconHome" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="Minggu ini"
+        android:textColor="@color/blue"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/ivCurentAllowanceIconHome"
+        app:layout_constraintTop_toBottomOf="@+id/ivCurentAllowanceIconHome" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
