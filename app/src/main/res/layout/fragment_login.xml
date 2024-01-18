@@ -19,7 +19,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/componentEmailLoginContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -29,21 +29,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleLogin">
 
-        <include layout="@layout/component_email_edttxt_box" />
+        <include
+            android:id="@+id/componentEmailLogin"
+            layout="@layout/component_email_edttxt_box" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/componentPassLoginContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/componentEmailLoginContainer">
 
         <include
-            android:id="@+id/include"
+            android:id="@+id/componentPassLogin"
             layout="@layout/component_password_edttx_box" />
     </LinearLayout>
 
@@ -57,8 +59,8 @@
         android:text="Lupa Kata sandi ?"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+        app:layout_constraintEnd_toEndOf="@+id/componentPassLoginContainer"
+        app:layout_constraintTop_toBottomOf="@+id/componentPassLoginContainer" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -69,8 +71,8 @@
         android:fontFamily="@font/open_sans_semibold"
         android:textSize="18sp"
         android:text="Login"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout2"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="@+id/componentEmailLoginContainer"
+        app:layout_constraintStart_toStartOf="@+id/componentEmailLoginContainer"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 

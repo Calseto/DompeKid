@@ -10,8 +10,9 @@ import com.example.dompekid.base.BaseActivity
 import com.example.dompekid.databinding.ActivityLandingBinding
 import com.example.dompekid.presentation.dashboard.DashboardActivity
 import com.example.dompekid.presentation.landing.login.LoginFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class LandingActivity : BaseActivity<ActivityLandingBinding>() {
 
     private val loginFragment=LoginFragment()
@@ -49,6 +50,7 @@ class LandingActivity : BaseActivity<ActivityLandingBinding>() {
     private fun setupLoginFragment(){
         loginFragment.setLoginNavDes{
             DashboardActivity.navigateToDashboardActivity(this)
+            finish()
         }
     }
     private fun handleLogin(){

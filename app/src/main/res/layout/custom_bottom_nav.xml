@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.6" />
+
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottom_nac_example"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btmNavHomeIcon"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/icon_home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btmNavLearnIcon"
+        app:layout_constraintStart_toStartOf="@id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/btmNavHomeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:visibility="visible"
+        android:textColor="@color/blue"
+        android:text="Beranda"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@id/btmNavHomeIcon"
+        app:layout_constraintEnd_toEndOf="@id/btmNavHomeIcon"
+        app:layout_constraintTop_toTopOf="@+id/btmNavHomeIcon" />
+
+    <ImageView
+        android:id="@+id/btmNavLearnIcon"
+        android:padding="10dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/icon_book"
+        app:layout_constraintBottom_toBottomOf="@+id/btmNavHomeIcon"
+        app:layout_constraintEnd_toEndOf="@id/guideline1"
+        app:layout_constraintStart_toEndOf="@+id/btmNavHomeIcon"
+        app:layout_constraintTop_toTopOf="@+id/btmNavHomeIcon" />
+
+    <TextView
+        android:id="@+id/btmNavLearnText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:visibility="invisible"
+        android:textColor="@color/blue"
+        android:text="Belajar"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/btmNavLearnIcon"
+        app:layout_constraintStart_toStartOf="@id/btmNavLearnIcon"
+        app:layout_constraintTop_toTopOf="@+id/btmNavLearnIcon" />
+
+    <ImageView
+        android:id="@+id/btmNavPocketIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/icon_pocket"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btmNavSettingsIcon"
+        app:layout_constraintStart_toStartOf="@id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+    <TextView
+        android:id="@+id/btmNavPocketText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:visibility="invisible"
+        android:textColor="@color/blue"
+        android:text="Dompet"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/btmNavPocketIcon"
+        app:layout_constraintStart_toStartOf="@+id/btmNavPocketIcon"
+        app:layout_constraintTop_toTopOf="@+id/btmNavPocketIcon" />
+
+    <ImageView
+        android:id="@+id/btmNavSettingsIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="10dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/icon_profile"
+        app:layout_constraintBottom_toBottomOf="@+id/btmNavPocketIcon"
+        app:layout_constraintEnd_toEndOf="@id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/btmNavPocketIcon"
+        app:layout_constraintTop_toTopOf="@+id/btmNavPocketIcon" />
+    <TextView
+        android:id="@+id/btmNavSettingsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="37dp"
+        android:fontFamily="@font/open_sans_semibold"
+        android:visibility="invisible"
+        android:textColor="@color/blue"
+        android:text="Akun"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="@+id/btmNavSettingsIcon"
+        app:layout_constraintStart_toStartOf="@+id/btmNavSettingsIcon"
+        app:layout_constraintTop_toTopOf="@+id/btmNavSettingsIcon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

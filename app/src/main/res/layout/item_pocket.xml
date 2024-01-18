@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/bgPocketItem"
+    android:elevation="5dp"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:backgroundTint="@color/green"
@@ -47,14 +48,14 @@
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/tvTitleTargetItemPocket"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:fontFamily="@font/open_sans"
         android:text="Total Target"
         android:textColor="@color/white"
-        android:textSize="10sp"
+        android:textSize="8sp"
         app:layout_constraintStart_toStartOf="@+id/tvBalancePockeItem"
         app:layout_constraintTop_toBottomOf="@+id/tvBalancePockeItem" />
 
@@ -66,16 +67,16 @@
         android:fontFamily="@font/open_sans_bold"
         android:text="Rp 1.000.000"
         android:textColor="@color/white"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/textView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView10" />
+        app:layout_constraintTop_toBottomOf="@+id/tvTitleTargetItemPocket" />
 
     <ImageView
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="30dp"
         android:src="@drawable/place_holder"
-        app:layout_constraintStart_toEndOf="@+id/tvExpirePocketItem"
+        app:layout_constraintStart_toEndOf="@+id/tvTitleTargetItemPocket"
         app:layout_constraintTop_toBottomOf="@+id/tvBalancePockeItem" />
 
 
