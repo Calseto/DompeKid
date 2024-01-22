@@ -1,0 +1,111 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp">
+
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans_bold"
+        android:layout_marginTop="10dp"
+        android:text="Masukan Data Diri Anda"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Name -->
+    <TextView
+        android:id="@+id/edtTxtNameTitle"
+        style="@style/InputTitle"
+        android:layout_marginTop="10dp"
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        app:layout_constraintStart_toStartOf="@+id/edttxtName"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <EditText
+        android:id="@+id/edttxtName"
+        style="@style/InputField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/edtTxtNameTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Date of Birth -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/edttxtName"
+        android:id="@+id/edtTxtDOBTitle"
+        style="@style/InputTitle"
+        android:textSize="14sp"
+        android:text="Date of Birth"
+        app:layout_constraintTop_toBottomOf="@id/edttxtName" />
+
+    <EditText
+        android:id="@+id/edttxtDOB"
+        style="@style/InputField"
+        android:inputType="date"
+        android:layout_width="0dp"
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edtTxtDOBTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Address -->
+    <TextView
+        android:id="@+id/edtTxtAddressTitle"
+        style="@style/InputTitle"
+        android:text="Address"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/edttxtDOB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/edttxtName"/>
+
+    <EditText
+        android:id="@+id/edttxtAddress"
+        style="@style/InputField"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/edtTxtAddressTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Phone Number -->
+    <TextView
+        android:id="@+id/edtTxtPhoneNumberTitle"
+        style="@style/InputTitle"
+        android:text="Phone Number"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/edttxtAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/edttxtName"/>
+
+    <EditText
+        android:id="@+id/edttxtPhoneNumber"
+        style="@style/InputField"
+        android:inputType="phone"
+        android:layout_width="0dp"
+        android:textSize="12sp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edtTxtPhoneNumberTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

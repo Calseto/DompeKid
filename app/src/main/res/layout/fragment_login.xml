@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="#F5FFFFFF"
+    android:background="#FDFFFFFF"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -24,7 +24,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:layout_marginHorizontal="20dp"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleLogin">
@@ -35,11 +34,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/componentPassLoginContainer"
+        android:id="@+id/componentPassRegisterContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
-        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/componentEmailLoginContainer">
@@ -59,8 +57,8 @@
         android:text="Lupa Kata sandi ?"
         android:textSize="14sp"
         android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/componentPassLoginContainer"
-        app:layout_constraintTop_toBottomOf="@+id/componentPassLoginContainer" />
+        app:layout_constraintEnd_toEndOf="@+id/componentPassRegisterContainer"
+        app:layout_constraintTop_toBottomOf="@+id/componentPassRegisterContainer" />
 
     <Button
         android:id="@+id/btnLogin"

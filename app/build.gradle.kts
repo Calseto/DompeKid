@@ -4,6 +4,8 @@ plugins {
     id ("kotlin-parcelize")
     id ("kotlin-kapt")
     id ("com.google.dagger.hilt.android")
+    id ("androidx.navigation.safeargs.kotlin") version "2.7.6"
+
 }
 
 android {
@@ -16,7 +18,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.dompekid"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -34,6 +36,7 @@ android {
             )
         }
     }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -45,6 +48,9 @@ android {
 
 dependencies {
 
+    //jsonparser
+    implementation("com.fasterxml.jackson.core:jackson-databind:2.12.4")
+    implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.4")
     //navGraph
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")

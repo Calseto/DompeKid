@@ -3,6 +3,6 @@
     <corners android:radius="5dp" /> <!-- Adjust the radius to control the curvature -->
     <solid android:color="#FFFFFF" /> <!-- Change color as needed -->
     <stroke
-        android:width="3dp"
+        android:width="2dp"
         android:color="@color/blue" />
 </shape>

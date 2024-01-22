@@ -1,6 +1,7 @@
 package com.example.dompekid.adapter
 
 import android.content.res.ColorStateList
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,7 @@ import com.example.dompekid.data.youngsaverapi.responsemodel.PocketDataResponse
 import com.example.dompekid.databinding.ItemPocketBinding
 
 class PocketAdapter (
-    private val data:List<PocketDataResponse?>?,
+    private val data:List<PocketDataResponse?>?,private val onCLick:(PocketDataResponse?)->Unit
 ): RecyclerView.Adapter<PocketAdapter.PocketViewHolder>() {
 
     inner class PocketViewHolder(private val itemBinding:ItemPocketBinding ):
@@ -32,6 +33,11 @@ class PocketAdapter (
                         ContextCompat.getColor(this@PocketViewHolder.itemView.context, R.color.red)
                     )
                 }
+            }
+
+            itemBinding.bgPocketItem.setOnClickListener{
+                onCLick.invoke(model)
+                Log.d("TAG", "bisa di click")
             }
         }
     }

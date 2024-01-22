@@ -2,12 +2,18 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00FFFFFF"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabNavWallet"
         app:tabGravity="fill"
         app:tabMode="fixed"
+        app:tabSelectedTextColor="#00FFFFFF"
+        app:tabTextColor="#00FFFFFF"
+        app:tabRippleColor="@color/white"
+        app:tabIndicatorColor="@color/blue"
+        android:background="@drawable/tab_layout_saving_selected"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,6 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.viewpager2.widget.ViewPager2
+        android:background="#00FFFFFF"
         android:id="@+id/viewPagerWallet"
         android:layout_width="match_parent"
         android:layout_height="0dp"

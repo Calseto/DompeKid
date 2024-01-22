@@ -1,6 +1,9 @@
 package com.example.dompekid.data.youngsaverapi.responsemodel
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
+import java.math.BigInteger
 
 data class PocketResponse(
 
@@ -14,6 +17,7 @@ data class PocketResponse(
 	val statusCode: Int? = null
 )
 
+@Parcelize
 data class PocketDataResponse(
 
 	@field:SerializedName("name")
@@ -26,11 +30,11 @@ data class PocketDataResponse(
 	val id: String? = null,
 
 	@field:SerializedName("saldo")
-	val saldo: Any? = null,
+	val saldo: Long? = null,
 
 	@field:SerializedName("target")
-	val target: Any? = null,
+	val target: Long? = null,
 
 	@field:SerializedName("status")
 	val status: Boolean? = null
-)
+):Parcelable
