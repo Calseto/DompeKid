@@ -37,6 +37,7 @@ class TransferFragmentB : BaseFragment<FragmentTransferBBinding>() {
             }
             else{
                 makeToast("Transaksi Gagal Dilakukan")
+
             }
         }
     }
