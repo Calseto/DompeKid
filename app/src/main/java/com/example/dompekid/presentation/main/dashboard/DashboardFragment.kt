@@ -2,6 +2,7 @@ package com.example.dompekid.presentation.main.dashboard
 
 import android.app.Activity
 import android.content.Intent
+import androidx.fragment.app.activityViewModels
 import com.example.dompekid.R
 import com.example.dompekid.base.BaseFragment
 import com.example.dompekid.databinding.FragmentDasboardBinding
@@ -18,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 //bis di optimasi , klo sempet ganti
 @AndroidEntryPoint
 class DashboardFragment:BaseFragment<FragmentDasboardBinding>() {
+    private val viewModel:DashboardViewModel by activityViewModels<DashboardViewModel>()
     private lateinit var bottomNavManager:BottomNavManager
 
     override fun inflateBinding(): FragmentDasboardBinding {
@@ -31,28 +33,29 @@ class DashboardFragment:BaseFragment<FragmentDasboardBinding>() {
 
     private fun setupBottomNavMenu (){
         bottomNavManager= BottomNavManager(preparedMenuItemList())
-        bottomNavManager.changeMenu(0)
-        manageFragmentTransition(0)
+        viewModel.btmNavPOs.observe(requireActivity()){
+            bottomNavManager.changeMenu(it)
+            manageFragmentTransition(it)
+        }
         binding.customBottomNav.apply {
             btmNavHomeIcon.setOnClickListener{
                 val menuID=0
-                bottomNavManager.changeMenu(menuID)
-                manageFragmentTransition(menuID)
+                viewModel.updateBtmNavPos(menuID)
             }
             btmNavLearnIcon.setOnClickListener{
                 val menuID=1
-                bottomNavManager.changeMenu(menuID)
-                manageFragmentTransition(menuID)
+                viewModel.updateBtmNavPos(menuID)
+
             }
             btmNavPocketIcon.setOnClickListener{
                 val menuID=2
-                bottomNavManager.changeMenu(menuID)
-                manageFragmentTransition(menuID)
+                viewModel.updateBtmNavPos(menuID)
+
             }
             btmNavSettingsIcon.setOnClickListener{
                 val menuID=3
-                bottomNavManager.changeMenu(menuID)
-                manageFragmentTransition(menuID)
+                viewModel.updateBtmNavPos(menuID)
+
             }
         }
     }

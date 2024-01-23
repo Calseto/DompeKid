@@ -1,6 +1,8 @@
 package com.example.dompekid.data.youngsaverapi.remote
 
 import com.example.dompekid.data.youngsaverapi.YoungSaverService
+import com.example.dompekid.data.youngsaverapi.responsemodel.CreatePocketRequest
+import com.example.dompekid.data.youngsaverapi.responsemodel.CreatePocketResponse
 import com.example.dompekid.data.youngsaverapi.responsemodel.PocketResponse
 import com.example.dompekid.data.youngsaverapi.responsemodel.TopUpRequest
 import com.example.dompekid.data.youngsaverapi.responsemodel.TopUpResponse
@@ -9,8 +11,15 @@ import javax.inject.Inject
 
 class PocketRemoteDataSourceImpl @Inject constructor(
     private val service: YoungSaverService
-) :
-    PocketRemoteDataSource {
+) : PocketRemoteDataSource
+{
+    override suspend fun createPocket(
+        token: String,
+        createPocketRequest: CreatePocketRequest
+    ): Response<CreatePocketResponse> {
+        return service.createPocket(token,createPocketRequest)
+    }
+
     override suspend fun getAllPocket(token:String): Response<PocketResponse> {
         return service.getAllPocket(token)
     }

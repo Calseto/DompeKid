@@ -48,6 +48,8 @@ android {
 
 dependencies {
 
+    //Material Design
+    implementation ("com.google.android.material:material:1.11.0")
     //jsonparser
     implementation("com.fasterxml.jackson.core:jackson-databind:2.12.4")
     implementation("com.fasterxml.jackson.core:jackson-annotations:2.12.4")

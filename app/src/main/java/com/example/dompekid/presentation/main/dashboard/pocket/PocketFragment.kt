@@ -1,10 +1,12 @@
 package com.example.dompekid.presentation.main.dashboard.pocket
 
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.dompekid.R
 import com.example.dompekid.adapter.PocketTabAdapter
 import com.example.dompekid.base.BaseFragment
 import com.example.dompekid.databinding.FragmentPocketBinding
+import com.example.dompekid.presentation.main.dashboard.DashboardFragmentDirections
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
@@ -16,6 +18,14 @@ class PocketFragment:BaseFragment<FragmentPocketBinding>() {
 
     override fun setupView() {
         setupTabLayout()
+        setupFloatingButtonDestination()
+    }
+
+    private fun setupFloatingButtonDestination(){
+        binding.ivFLoatingBtn.setOnClickListener{
+            val action = DashboardFragmentDirections.actionDashboardFragmentToCreatePocketFragment()
+            findNavController().navigate(action)
+        }
     }
 
     private fun setupTabLayout(){

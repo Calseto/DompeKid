@@ -3,4 +3,10 @@
 
     <string name="Token">token</string>
     <string name="Pocket">pocket"</string>
+
+    <string-array name="jenisPocket">
+        <item>Pilih Jenis Pocket</item>
+        <item>Tabungan</item>
+        <item>Uang Saku</item>
+    </string-array>
 </resources>

@@ -2,6 +2,8 @@ package com.example.dompekid.data.youngsaverapi
 
 import com.example.dompekid.data.youngsaverapi.responsemodel.CreateAccountRequest
 import com.example.dompekid.data.youngsaverapi.responsemodel.CreateAccountResponse
+import com.example.dompekid.data.youngsaverapi.responsemodel.CreatePocketRequest
+import com.example.dompekid.data.youngsaverapi.responsemodel.CreatePocketResponse
 import com.example.dompekid.data.youngsaverapi.responsemodel.LoginRequest
 import com.example.dompekid.data.youngsaverapi.responsemodel.LoginResponse
 import com.example.dompekid.data.youngsaverapi.responsemodel.PocketResponse
@@ -19,6 +21,11 @@ import retrofit2.http.Path
 
 interface YoungSaverService {
 
+    @POST("pocket")
+    suspend fun createPocket(
+        @Header("Authorization") authorization: String,
+        @Body createPocketRequest: CreatePocketRequest
+    ): Response<CreatePocketResponse>
     @GET("pocket")
     suspend fun getAllPocket(@Header("Authorization") authorization: String): Response<PocketResponse>
 

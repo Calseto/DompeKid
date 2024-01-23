@@ -10,7 +10,18 @@
         android:label="DashboardFragment">
         <action
             android:id="@+id/action_dashboardFragment_to_topUpPocketFragment"
-            app:destination="@id/topUpPocketFragment"/>
+            app:destination="@id/topUpPocketFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_createPocketFragment"
+            app:destination="@id/createPocketFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/topUpPocketFragment"
@@ -20,7 +31,23 @@
         <action
             android:id="@+id/action_topUpPocketFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/topUpPocketFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/createPocketFragment"
+        android:name="com.example.dompekid.presentation.main.createpocket.CreatePocketFragment"
+        android:label="CreatePocketFragment" >
+        <action
+            android:id="@+id/action_createPocketFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/createPocketFragment"
             app:popUpToInclusive="true" />
     </fragment>
 </navigation>

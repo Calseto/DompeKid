@@ -5,6 +5,7 @@ import com.example.dompekid.data.youngsaverapi.remote.PocketRemoteDataSource
 import com.example.dompekid.data.youngsaverapi.remote.PocketRemoteDataSourceImpl
 import com.example.dompekid.data.youngsaverapi.repo.PocketRepo
 import com.example.dompekid.data.youngsaverapi.repo.PocketRepoImpl
+import com.example.dompekid.data.youngsaverapi.usecase.CreateNewPocketUseCase
 import com.example.dompekid.data.youngsaverapi.usecase.GetAllPocketUseCase
 import com.example.dompekid.data.youngsaverapi.usecase.GetAllowancePocketOnly
 import com.example.dompekid.data.youngsaverapi.usecase.GetSavingPocketOnly
@@ -43,6 +44,12 @@ object PocketModule {
     @Provides
     fun provideGetAllowancePocketOnly(useCase: GetAllPocketUseCase): GetAllowancePocketOnly {
         return GetAllowancePocketOnly(useCase)
+    }
+
+    @Singleton
+    @Provides
+    fun provideCreatePocketUseCase(repo: PocketRepo): CreateNewPocketUseCase {
+        return CreateNewPocketUseCase(repo)
     }
 
     @Singleton

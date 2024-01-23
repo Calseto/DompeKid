@@ -26,23 +26,12 @@ class MainActivity:BaseActivity<ActivityMainBinding>() {
     }
 
     override fun setupView() {
-        setTransparentStatusBar()
+
     }
 
     override fun onPostCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onPostCreate(savedInstanceState, persistentState)
         findNavController(binding.navHostFragment.id)
-    }
-    private fun setTransparentStatusBar() {
-        window.apply {
-            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            statusBarColor = Color.TRANSPARENT
-
-
-            decorView.systemUiVisibility =
-                decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-
-        }
     }
 
 }

@@ -27,6 +27,18 @@
         <include
             android:id="@+id/componentWalletBottom"
             layout="@layout/component_wallet_bottom" />
+
     </LinearLayout>
+    <ImageButton
+        android:id="@+id/ivFLoatingBtn"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="25dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:src="@drawable/add_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
