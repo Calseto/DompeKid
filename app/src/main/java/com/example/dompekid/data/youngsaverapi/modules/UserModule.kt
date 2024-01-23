@@ -11,6 +11,7 @@ import com.example.dompekid.data.youngsaverapi.repo.UserDataRepoImpl
 import com.example.dompekid.data.youngsaverapi.usecase.GetAllPocketUseCase
 import com.example.dompekid.data.youngsaverapi.usecase.GetAllowancePocketOnly
 import com.example.dompekid.data.youngsaverapi.usecase.GetSavingPocketOnly
+import com.example.dompekid.data.youngsaverapi.usecase.GetTransferDataUseCase
 import com.example.dompekid.data.youngsaverapi.usecase.GetUserDataUseCase
 import dagger.Module
 import dagger.Provides
@@ -35,5 +36,10 @@ object UserModule {
     @Provides
     fun provideGetUserDataUseCase(repo: UserDataRepo): GetUserDataUseCase {
         return GetUserDataUseCase(repo)
+    }
+    @Singleton
+    @Provides
+    fun provideTransferDataUseCase(repo: UserDataRepo): GetTransferDataUseCase {
+        return GetTransferDataUseCase(repo)
     }
 }

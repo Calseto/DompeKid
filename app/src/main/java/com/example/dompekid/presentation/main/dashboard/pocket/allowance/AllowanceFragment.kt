@@ -1,5 +1,6 @@
 package com.example.dompekid.presentation.main.dashboard.pocket.allowance
 
+import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.dompekid.adapter.AllowanceAdapter
 import com.example.dompekid.adapter.SavingAdapter
@@ -12,7 +13,7 @@ import com.example.dompekid.presentation.main.dashboard.viewmodel.SavingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AllowanceFragment:BaseFragment<FragmentAllowanceBinding>() {
+class AllowanceFragment(private val onClick: (PocketDataResponse?)->Unit):BaseFragment<FragmentAllowanceBinding>() {
     private val viewModel: AllowanceFragmentViewModel by viewModels()
     override fun inflateBinding(): FragmentAllowanceBinding {
         return FragmentAllowanceBinding.inflate(layoutInflater)
@@ -26,7 +27,7 @@ class AllowanceFragment:BaseFragment<FragmentAllowanceBinding>() {
         viewModel.updateDataAllowance()
         viewModel.listPocketAllowance.observe(viewLifecycleOwner,::setupPocketRV)
     }
-    private fun setupPocketRV(list:List<PocketDataResponse?>?){
-        binding.rvAllowance.adapter= AllowanceAdapter(list)
+    private fun setupPocketRV(list:List<PocketDataResponse?>?) {
+        binding.rvAllowance.adapter = AllowanceAdapter(list,onClick)
     }
 }

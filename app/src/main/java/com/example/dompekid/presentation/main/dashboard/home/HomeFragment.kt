@@ -25,6 +25,14 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>() {
 
     override fun setupView() {
         observeViewModel()
+        setupBtnToTransfer()
+    }
+
+    private fun setupBtnToTransfer(){
+        binding.btnToTransferPage.setOnClickListener{
+            val action=DashboardFragmentDirections.actionDashboardFragmentToChoosePocketPaymentFragment()
+            findNavController().navigate(action)
+        }
     }
 
 

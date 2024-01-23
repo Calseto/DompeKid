@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.motion.widget.MotionScene.Transition.TransitionOnClick
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dompekid.R
@@ -12,6 +13,7 @@ import com.example.dompekid.databinding.ItemPocket2Binding
 
 class SavingAdapter (
     private val data:List<PocketDataResponse?>?,
+    private val onClick: (PocketDataResponse?)->Unit
 ): RecyclerView.Adapter<SavingAdapter.SavingViewHolder>() {
 
     inner class SavingViewHolder(private val itemBinding: ItemPocket2Binding):
@@ -31,6 +33,9 @@ class SavingAdapter (
                     "UangSaku"-> bgPocketItem.backgroundTintList= ColorStateList.valueOf(
                         ContextCompat.getColor(this@SavingViewHolder.itemView.context, R.color.red)
                     )
+                }
+                itemBinding.bgPocketItem.setOnClickListener {
+                    onClick.invoke(model)
                 }
             }
         }

@@ -6,6 +6,8 @@ import com.example.dompekid.data.youngsaverapi.responsemodel.CreatePocketRespons
 import com.example.dompekid.data.youngsaverapi.responsemodel.PocketResponse
 import com.example.dompekid.data.youngsaverapi.responsemodel.TopUpRequest
 import com.example.dompekid.data.youngsaverapi.responsemodel.TopUpResponse
+import com.example.dompekid.data.youngsaverapi.responsemodel.TransactionRequest
+import com.example.dompekid.data.youngsaverapi.responsemodel.TransactionResponse
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -28,5 +30,12 @@ class PocketRepoImpl @Inject constructor(
         topUpRequest: TopUpRequest
     ): Response<TopUpResponse> {
         return dataSource.postTopUp(authorization,topUpRequest)
+    }
+
+    override suspend fun postTransaction(
+        authorization: String,
+        transactionRequest: TransactionRequest?
+    ): Response<TransactionResponse> {
+        return dataSource.postTransaction(authorization,transactionRequest)
     }
 }

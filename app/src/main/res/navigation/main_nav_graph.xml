@@ -9,32 +9,22 @@
         android:name="com.example.dompekid.presentation.main.dashboard.DashboardFragment"
         android:label="DashboardFragment">
         <action
-            android:id="@+id/action_dashboardFragment_to_topUpPocketFragment"
-            app:destination="@id/topUpPocketFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
-        <action
             android:id="@+id/action_dashboardFragment_to_createPocketFragment"
             app:destination="@id/createPocketFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
-    </fragment>
-    <fragment
-        android:id="@+id/topUpPocketFragment"
-        android:name="com.example.dompekid.presentation.main.editpocket.TopUpPocketFragment"
-        android:label="TopUpPocketFragment">
-
         <action
-            android:id="@+id/action_topUpPocketFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment"
+            android:id="@+id/action_dashboardFragment_to_choosePocketPaymentFragment"
+            app:destination="@id/choosePocketPaymentFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_topUpPocketFragment"
+            app:destination="@id/topUpPocketFragment"
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
-            app:popUpTo="@id/topUpPocketFragment"
-            app:popUpToInclusive="true" />
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/createPocketFragment"
@@ -49,5 +39,52 @@
             app:popExitAnim="@android:anim/slide_out_right"
             app:popUpTo="@id/createPocketFragment"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/choosePocketPaymentFragment"
+        android:name="com.example.dompekid.presentation.main.transfer.ChoosePocketPaymentFragment"
+        android:label="ChoosePocketPaymentFragment" >
+        <action
+            android:id="@+id/action_choosePocketPaymentFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_choosePocketPaymentFragment_to_transferFragmentA"
+            app:destination="@id/transferFragmentA" />
+    </fragment>
+    <fragment
+        android:id="@+id/topUpPocketFragment"
+        android:name="com.example.dompekid.presentation.main.editpocket.TopUpPocketFragment"
+        android:label="TopUpPocketFragment" >
+        <action
+            android:id="@+id/action_topUpPocketFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/topUpPocketFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFragmentA"
+        android:name="com.example.dompekid.presentation.main.transfer.TransferFragmentA"
+        android:label="TransferFragmentA" >
+        <action
+            android:id="@+id/action_transferFragmentA_to_transferFragmentB"
+            app:destination="@id/transferFragmentB" />
+        <action
+            android:id="@+id/action_transferFragmentA_to_choosePocketPaymentFragment"
+            app:destination="@id/choosePocketPaymentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFragmentB"
+        android:name="com.example.dompekid.presentation.main.transfer.TransferFragmentB"
+        android:label="TransferFragmentB" >
+        <action
+            android:id="@+id/action_transferFragmentB_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_transferFragmentB_to_transferFragmentA"
+            app:destination="@id/transferFragmentA" />
     </fragment>
 </navigation>

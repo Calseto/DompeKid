@@ -13,11 +13,15 @@ import com.example.dompekid.databinding.ItemPocketBinding
 
 class AllowanceAdapter (
     private val data:List<PocketDataResponse?>?,
+    private val onClick: (PocketDataResponse?)->Unit
 ): RecyclerView.Adapter<AllowanceAdapter.AllowanceViewHolder>() {
+
+    private var optionalMethod:(itemBinding:ItemPocket2Binding)->Unit=({})
 
     inner class AllowanceViewHolder(private val itemBinding:ItemPocket2Binding ):
         RecyclerView.ViewHolder(itemBinding.root){
         fun bind(model: PocketDataResponse?){
+            optionalMethod.invoke(itemBinding)
             itemBinding.apply {
                 tvTitlePocketItem2.text=model?.name
                 tvBalancePockeItem2.text=model?.saldo.toString()
@@ -26,12 +30,23 @@ class AllowanceAdapter (
                 }
                 else tvExpirePocketItem2.visibility=View.INVISIBLE
                 when(model?.jenisPocket){
-                    "Tabungan"-> bgPocketItem.backgroundTintList= ColorStateList.valueOf(
-                        ContextCompat.getColor(this@AllowanceViewHolder.itemView.context, R.color.green)
-                    )
-                    "UangSaku"-> bgPocketItem.backgroundTintList= ColorStateList.valueOf(
-                        ContextCompat.getColor(this@AllowanceViewHolder.itemView.context, R.color.red)
-                    )
+                    "Tabungan"-> {
+                        ivItemPocketIcon2.setImageResource(R.drawable.place_holder)
+                        btnAllocateFund.setImageResource(R.drawable.btn_aloccate_fund)
+                        bgPocketItem.backgroundTintList= ColorStateList.valueOf(
+                            ContextCompat.getColor(this@AllowanceViewHolder.itemView.context, R.color.green)
+                        )
+                    }
+                    "UangSaku"-> {
+                        ivItemPocketIcon2.setImageResource(R.drawable.place_holder2)
+                        btnAllocateFund.setImageResource(R.drawable.btn_aloccate_fund2)
+                        bgPocketItem.backgroundTintList= ColorStateList.valueOf(
+                            ContextCompat.getColor(this@AllowanceViewHolder.itemView.context, R.color.red)
+                        )
+                    }
+                }
+                bgPocketItem.setOnClickListener {
+                    onClick.invoke(model)
                 }
             }
         }

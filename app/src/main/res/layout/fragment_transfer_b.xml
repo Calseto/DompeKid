@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/open_sans_bold"
+        android:text="Sumber Dana"
+        android:textColor="@color/blue"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView22">
+
+        <include
+            android:id="@+id/itemTopUp"
+            layout="@layout/item_pocket_2" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="30dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_square_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_square_container"
+            android:paddingBottom="30dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLayout3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/rounded_square_container"
+                android:backgroundTint="@color/blue"
+                android:paddingVertical="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="30dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="30dp"
+                    android:src="@drawable/icon_transfer"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvTransferTargetRek"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvTransferTargetName" />
+
+                <TextView
+                    android:id="@+id/tvTransferTargetName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="@font/open_sans_bold"
+                    android:text="Nama Tujuan"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintStart_toEndOf="@+id/imageView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTransferTargetRek"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_semibold"
+                    android:text="Nama Tujuan"
+                    android:textColor="@color/white"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvTransferTargetName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTransferTargetName" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/open_sans_bold"
+                android:text="Nominal Pembayaran"
+                android:textColor="@color/blue"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
+
+            <TextView
+                android:id="@+id/tvTransferNominal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_square_container"
+                android:backgroundTint="@color/blue_gray"
+                android:fontFamily="@font/open_sans_bold"
+                android:paddingHorizontal="15dp"
+                android:paddingVertical="8dp"
+                android:textColorHint="@color/blue_gray2"
+                android:textSize="22sp"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
+                app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnConfirmTransfer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:paddingHorizontal="100dp"
+        android:layout_marginTop="25dp"
+        android:backgroundTint="@color/blue"
+        android:textColor="@color/white"
+        android:text="Konfirmasi"
+        app:layout_constraintEnd_toEndOf="@+id/cardView"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

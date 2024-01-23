@@ -9,13 +9,14 @@
     android:background="@drawable/rounded_square_container"
     android:backgroundTint="@color/green"
     android:layout_marginVertical="10dp"
-    android:paddingHorizontal="15dp"
+    android:paddingEnd="15dp"
     android:paddingBottom="15dp">
 
     <TextView
         android:id="@+id/tvTitlePocketItem2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/open_sans_bold"
         android:text="Judul Tabungan"
@@ -74,9 +75,10 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/btnAllocateFund"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
         android:scaleType="fitXY"
         android:layout_marginTop="15dp"
         android:src="@drawable/btn_aloccate_fund"
@@ -84,11 +86,12 @@
         app:layout_constraintTop_toBottomOf="@+id/tvBalancePockeItem2" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/ivItemPocketIcon2"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
         android:layout_marginStart="25dp"
         android:src="@drawable/place_holder"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@id/btnAllocateFund"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tvExpirePocketItem2"
         app:layout_constraintTop_toTopOf="@id/tvTitleTargetItemPocket2" />

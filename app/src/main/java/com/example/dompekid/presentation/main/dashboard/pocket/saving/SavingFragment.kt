@@ -1,5 +1,6 @@
 package com.example.dompekid.presentation.main.dashboard.pocket.saving
 
+import android.view.View
 import androidx.fragment.app.viewModels
 import com.example.dompekid.adapter.PocketAdapter
 import com.example.dompekid.adapter.SavingAdapter
@@ -11,7 +12,7 @@ import com.example.dompekid.presentation.main.dashboard.viewmodel.SavingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class SavingFragment:BaseFragment<FragmentSavingBinding>() {
+class SavingFragment(private val onClick: (PocketDataResponse?)->Unit):BaseFragment<FragmentSavingBinding>() {
     private val viewModel:SavingFragmentViewModel by viewModels()
     override fun inflateBinding(): FragmentSavingBinding {
         return FragmentSavingBinding.inflate(layoutInflater)
@@ -26,6 +27,6 @@ class SavingFragment:BaseFragment<FragmentSavingBinding>() {
         viewModel.listPocketSaving.observe(viewLifecycleOwner,::setupPocketRV)
     }
     private fun setupPocketRV(list:List<PocketDataResponse?>?){
-        binding.rvSaving.adapter= SavingAdapter(list)
+        binding.rvSaving.adapter= SavingAdapter(list,onClick)
     }
 }

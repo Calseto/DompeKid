@@ -26,12 +26,14 @@ class PocketAdapter (
                 }
                 else tvExpirePocketItem.visibility=View.INVISIBLE
                 when(model?.jenisPocket){
-                    "Tabungan"-> bgPocketItem.backgroundTintList= ColorStateList.valueOf(
-                        ContextCompat.getColor(this@PocketViewHolder.itemView.context, R.color.green)
-                    )
-                    "UangSaku"-> bgPocketItem.backgroundTintList= ColorStateList.valueOf(
-                        ContextCompat.getColor(this@PocketViewHolder.itemView.context, R.color.red)
-                    )
+                    "Tabungan"-> {
+                        ivItemPocketIcon1.setImageResource(R.drawable.place_holder)
+                        bgPocketItem.backgroundTintList= ColorStateList.valueOf(ContextCompat.getColor(this@PocketViewHolder.itemView.context, R.color.green))
+                    }
+                    "UangSaku"->{
+                        ivItemPocketIcon1.setImageResource(R.drawable.place_holder2)
+                        bgPocketItem.backgroundTintList= ColorStateList.valueOf(ContextCompat.getColor(this@PocketViewHolder.itemView.context, R.color.red))
+                    }
                 }
             }
 

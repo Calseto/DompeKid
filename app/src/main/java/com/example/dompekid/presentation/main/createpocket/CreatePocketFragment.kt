@@ -31,13 +31,6 @@ class CreatePocketFragment:BaseFragment<FragmentCreatePocketBinding>() {
         setupSpinner()
         handleCreatePocket()
         observeViewModel()
-        Handler().postDelayed({
-            if(status==true) {
-                val action =
-                    TopUpPocketFragmentDirections.actionTopUpPocketFragmentToDashboardFragment()
-                view?.findNavController()?.navigate(action)
-            }
-        },500)
     }
 
     private fun handleCreatePocket(){
@@ -58,9 +51,10 @@ class CreatePocketFragment:BaseFragment<FragmentCreatePocketBinding>() {
                     makeToast("Harap Pilih Jenis Pocket")
                 }
             }
+            val nominal = binding.createPocketForm.edttxtFundPocket.text.toString()
             if(jenisPocket!=null) {
                 val createPocketRequest = CreatePocketRequest(name, jenisPocket, target)
-                viewModel.updateData(createPocketRequest)
+                viewModel.updateData(createPocketRequest,BigInteger(nominal))
             }
         }
     }
@@ -69,7 +63,9 @@ class CreatePocketFragment:BaseFragment<FragmentCreatePocketBinding>() {
         viewModel.createPocketResponse.observe(viewLifecycleOwner){
             if(it?.statusCode==200){
                 makeToast("Pembuatan Pocket Berhasil")
-                status=true
+                val action =
+                    CreatePocketFragmentDirections.actionCreatePocketFragmentToDashboardFragment()
+                view?.findNavController()?.navigate(action)
             }
             else status=false
         }
