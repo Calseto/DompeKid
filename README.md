@@ -18,7 +18,7 @@
 - Private DIY API Called YoungSavers - Running on Local Machine
 
 # Description
-- this is a simple app , made as a prototype to be used to help keep at learning from early age about digital modeny management
+- this is a simple app , made as a prototype to be used to help keep kid at learning from early age about digital money management
 - helping parent to help manage and monitor their child spending
 
 # Features
