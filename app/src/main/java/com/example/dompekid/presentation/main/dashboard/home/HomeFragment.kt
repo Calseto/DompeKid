@@ -26,6 +26,18 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>() {
     override fun setupView() {
         observeViewModel()
         setupBtnToTransfer()
+        handleLoadingState()
+    }
+
+    private fun handleLoadingState(){
+        homeViewModel.loadingState.observe(viewLifecycleOwner){
+            if (it==true){
+                openLoadingFragment(binding.progressbar)
+            }
+            else{
+                closeLoadingFragment(binding.progressbar)
+            }
+        }
     }
 
     private fun setupBtnToTransfer(){
@@ -42,6 +54,7 @@ class HomeFragment:BaseFragment<FragmentHomeBinding>() {
         homeViewModel.userData.observe(viewLifecycleOwner,::setupUserData)
     }
     private fun setupUserData(userRespons: UserRespons?){
+        homeViewModel.turnOffLoadingState()
         binding.componentHomeTop.apply {
             tvNameHome.text=userRespons?.data?.get(0)?.name
             tvCurrentBalanceHome.text="Rp "+ userRespons?.data?.get(0)?.showedBalance.toString()

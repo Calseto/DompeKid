@@ -18,6 +18,7 @@ class SavingFragmentViewModel @Inject constructor(
     private val getSharedPrefUseCase: GetSharedPrefUseCase
 ):ViewModel(){
 
+    private var listAll:List<PocketDataResponse?>?= listOf()
     private val _listPocketSaving = MutableLiveData<List<PocketDataResponse?>?>()
     val listPocketSaving: LiveData<List<PocketDataResponse?>?> get() = _listPocketSaving
 
@@ -25,10 +26,22 @@ class SavingFragmentViewModel @Inject constructor(
     fun updateDataSaving(){
         viewModelScope.launch {
             val list = getSavingPocketUseCase.getSavingPocket(getSharedPrefUseCase.getSharedPref().getToken())
-            if(list!=null)
+            if(list!=null) {
+                listAll=list
                 _listPocketSaving.postValue(list)
+            }
             else
                 println("data kosong")
         }
+    }
+
+    fun returnList(){
+        _listPocketSaving.postValue(listAll)
+    }
+    fun filterData(string: String){
+        val list = listAll?.filter {
+            (it?.name?.contains(string, ignoreCase = true)==true)
+        }
+        _listPocketSaving.postValue(list)
     }
 }

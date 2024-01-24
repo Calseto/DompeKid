@@ -31,6 +31,19 @@ class CreatePocketFragment:BaseFragment<FragmentCreatePocketBinding>() {
         setupSpinner()
         handleCreatePocket()
         observeViewModel()
+
+        handleLoadingState()
+    }
+
+    private fun handleLoadingState(){
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            if (it==true){
+                openLoadingFragment(binding.progressbar)
+            }
+            else{
+                closeLoadingFragment(binding.progressbar)
+            }
+        }
     }
 
     private fun handleCreatePocket(){
@@ -61,6 +74,7 @@ class CreatePocketFragment:BaseFragment<FragmentCreatePocketBinding>() {
 
     private fun observeViewModel(){
         viewModel.createPocketResponse.observe(viewLifecycleOwner){
+            viewModel.turnOffLoadingState()
             if(it?.statusCode==200){
                 makeToast("Pembuatan Pocket Berhasil")
                 val action =

@@ -57,6 +57,7 @@ dependencies {
     implementation ("androidx.navigation:navigation-fragment-ktx:2.3.5")
     implementation ("androidx.navigation:navigation-ui-ktx:2.3.5")
     //glide
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation ("com.github.bumptech.glide:glide:4.12.0") // Use the latest version
     kapt ("com.github.bumptech.glide:compiler:4.12.0")
     //Retrofit
@@ -66,7 +67,7 @@ dependencies {
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
-    // Coroutine Lifecycle Scopes
+    // Coroutine Lifecycle Scope
     implementation ("com.google.dagger:hilt-android:2.44")
     kapt ("com.google.dagger:hilt-android-compiler:2.44")
     implementation ("androidx.fragment:fragment-ktx:1.6.2")

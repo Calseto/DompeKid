@@ -13,8 +13,10 @@ import com.example.dompekid.presentation.main.dashboard.viewmodel.SavingFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class AllowanceFragment(private val onClick: (PocketDataResponse?)->Unit):BaseFragment<FragmentAllowanceBinding>() {
-    private val viewModel: AllowanceFragmentViewModel by viewModels()
+class AllowanceFragment(
+    private val onClick: (PocketDataResponse?)->Unit,
+    private val viewModel: AllowanceFragmentViewModel
+):BaseFragment<FragmentAllowanceBinding>() {
     override fun inflateBinding(): FragmentAllowanceBinding {
         return FragmentAllowanceBinding.inflate(layoutInflater)
     }

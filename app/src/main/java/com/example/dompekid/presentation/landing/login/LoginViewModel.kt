@@ -30,11 +30,9 @@ class LoginViewModel @Inject constructor(
             val result =getTokenUseCase.getToken(loginRequest)
             if(result.body()?.statusCode==200) {
                 _JWTToken.postValue(extractTokenFromResponse(result))
-                _loadingState.postValue(false)
             }
-            else if(result.body()!=null) {
+            else{
                 _JWTToken.postValue("gagal")
-                _loadingState.postValue(false)
             }
         }
     }

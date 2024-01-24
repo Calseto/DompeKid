@@ -17,7 +17,11 @@
             app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_dashboardFragment_to_choosePocketPaymentFragment"
-            app:destination="@id/choosePocketPaymentFragment" />
+            app:destination="@id/choosePocketPaymentFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_dashboardFragment_to_topUpPocketFragment"
             app:destination="@id/topUpPocketFragment"
@@ -25,6 +29,9 @@
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@android:anim/slide_in_left"
             app:popExitAnim="@android:anim/slide_out_right" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/createPocketFragment"
@@ -46,10 +53,18 @@
         android:label="ChoosePocketPaymentFragment" >
         <action
             android:id="@+id/action_choosePocketPaymentFragment_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_choosePocketPaymentFragment_to_transferFragmentA"
-            app:destination="@id/transferFragmentA" />
+            app:destination="@id/transferFragmentA"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/topUpPocketFragment"
@@ -71,10 +86,18 @@
         android:label="TransferFragmentA" >
         <action
             android:id="@+id/action_transferFragmentA_to_transferFragmentB"
-            app:destination="@id/transferFragmentB" />
+            app:destination="@id/transferFragmentB"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_transferFragmentA_to_choosePocketPaymentFragment"
-            app:destination="@id/choosePocketPaymentFragment" />
+            app:destination="@id/choosePocketPaymentFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/transferFragmentB"
@@ -82,9 +105,25 @@
         android:label="TransferFragmentB" >
         <action
             android:id="@+id/action_transferFragmentB_to_dashboardFragment"
-            app:destination="@id/dashboardFragment" />
+            app:destination="@id/dashboardFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
         <action
             android:id="@+id/action_transferFragmentB_to_transferFragmentA"
-            app:destination="@id/transferFragmentA" />
+            app:destination="@id/transferFragmentA"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.example.dompekid.presentation.main.dashboard.settings.UserInfoFragment"
+        android:label="UserInfoFragment" >
+        <action
+            android:id="@+id/action_userInfoFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
     </fragment>
 </navigation>

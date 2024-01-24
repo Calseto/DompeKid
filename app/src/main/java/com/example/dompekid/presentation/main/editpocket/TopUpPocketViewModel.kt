@@ -23,6 +23,7 @@ class TopUpPocketViewModel @Inject constructor(
     val status: LiveData<Boolean?> get() = _status
 
     fun updateData(topUpRequest: TopUpRequest){
+        _loadingState.postValue(true)
         viewModelScope.launch {
             val token = getSharedPrefUseCase.getSharedPref().getToken()
             val response = postTopUpUseCase.postTopUp(token,topUpRequest)

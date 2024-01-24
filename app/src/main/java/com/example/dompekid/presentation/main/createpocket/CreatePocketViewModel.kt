@@ -29,6 +29,7 @@ class CreatePocketViewModel @Inject constructor(
     val createPocketResponse: LiveData<CreatePocketResponse?> get() = _createPocketResponse
 
     fun updateData(createPocketRequest: CreatePocketRequest,nominal:BigInteger){
+        _loadingState.postValue(true)
         viewModelScope.launch {
             val respose = createNewPocketUseCase.createNewPocket(
                 getSharedPrefUseCase.getSharedPref().getToken(),

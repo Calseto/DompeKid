@@ -29,6 +29,19 @@ class TopUpPocketFragment:BaseFragment<FragmentTopupPocketBinding>() {
         handleTopUp(pocketData)
         observeViewModel()
 
+        handleLoadingState()
+
+    }
+
+    private fun handleLoadingState(){
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            if (it==true){
+                openLoadingFragment(binding.progressbar)
+            }
+            else{
+                closeLoadingFragment(binding.progressbar)
+            }
+        }
     }
 
     private fun handleTopUp(pocketData:PocketDataResponse?){
@@ -37,18 +50,15 @@ class TopUpPocketFragment:BaseFragment<FragmentTopupPocketBinding>() {
             val id=pocketData?.id
             val request =TopUpRequest(BigInteger(nominal),id)
             viewModel.updateData(request)
-            observeViewModel()
-
-            Handler().postDelayed({
-                val action = TopUpPocketFragmentDirections.actionTopUpPocketFragmentToDashboardFragment()
-                view?.findNavController()?.navigate(action)
-            },500)
         }
     }
     private fun observeViewModel(){
         viewModel.status.observe(viewLifecycleOwner){
+            viewModel.turnOffLoadingState()
             if (it==true){
                 Toast.makeText(context, "Top Up Berhasil", Toast.LENGTH_SHORT).show()
+                val action = TopUpPocketFragmentDirections.actionTopUpPocketFragmentToDashboardFragment()
+                view?.findNavController()?.navigate(action)
                 viewModel.resetLiveData()
             }
             if (it==false){

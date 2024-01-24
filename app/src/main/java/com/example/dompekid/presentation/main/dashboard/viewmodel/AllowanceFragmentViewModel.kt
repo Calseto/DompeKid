@@ -22,14 +22,28 @@ class AllowanceFragmentViewModel @Inject constructor(
     private val _listPocketAllowance = MutableLiveData<List<PocketDataResponse?>?>()
     val listPocketAllowance: LiveData<List<PocketDataResponse?>?> get() = _listPocketAllowance
 
+    private var listAll:List<PocketDataResponse?>?= listOf()
+
 
     fun updateDataAllowance(){
         viewModelScope.launch {
             val list = getAllowancePocketOnly.getAllowancePocket(getSharedPrefUseCase.getSharedPref().getToken())
-            if(list!=null)
+            if(list!=null) {
+                listAll = list
                 _listPocketAllowance.postValue(list)
+            }
             else
                 println("data kosong")
         }
+    }
+
+    fun returnList(){
+        _listPocketAllowance.postValue(listAll)
+    }
+    fun filterData(string: String){
+        val list = listAll?.filter {
+            (it?.name?.contains(string, ignoreCase = true)==true)
+        }
+        _listPocketAllowance.postValue(list)
     }
 }

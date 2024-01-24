@@ -1,6 +1,7 @@
 package com.example.dompekid.presentation.landing.register
 
 
+import android.view.View
 import com.example.dompekid.base.BaseFragment
 import com.example.dompekid.data.youngsaverapi.responsemodel.CreateAccountRequest
 import com.example.dompekid.data.youngsaverapi.responsemodel.RegisRequest
@@ -19,12 +20,21 @@ class RegisterFragment(private val viewModel: RegisterViewModel) :
     }
 
     override fun setupView() {
-        handleLoginAttempt()
-        handleLogin()
+        handleRegisterAttempt()
+        handleRegisterResult()
+
+        handleLoading()
     }
 
-    fun setLoginNavDes(navFun: () -> Unit) {
-        onClickLogin = navFun
+    private fun handleLoading(){
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            if (it==true){
+                openLoadingFragment(binding.loginProgressbar)
+            }
+            else{
+                closeLoadingFragment(binding.loginProgressbar)
+            }
+        }
     }
 
     private fun register() {
@@ -39,19 +49,20 @@ class RegisterFragment(private val viewModel: RegisterViewModel) :
         viewModel.register(regisRequest, createAcc)
     }
 
-    private fun handleLoginAttempt() {
+    private fun handleRegisterAttempt() {
         binding.btnRegister.setOnClickListener {
             register()
         }
     }
 
-    private fun handleLogin() {
+    private fun handleRegisterResult() {
         viewModel.status.observe(viewLifecycleOwner) {
-            if (it == true) {
-                activity?.onBackPressed()
+            viewModel.turnOffLoadingState()
+            if (it?.statusCode==200) {
                 makeToast("Registrasi Berhasil")
                 viewModel.resetLiveData()
-            } else if (it == false) {
+                activity?.onBackPressed()
+            } else{
                 makeToast("registrasi gagal")
             }
         }

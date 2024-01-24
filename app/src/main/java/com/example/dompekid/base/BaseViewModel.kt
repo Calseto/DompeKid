@@ -11,4 +11,8 @@ abstract class BaseViewModel:ViewModel() {
     val loadingState: LiveData<Boolean> get() = _loadingState
 
     abstract fun resetLiveData()
+
+    fun turnOffLoadingState(){
+        _loadingState.postValue(false)
+    }
 }

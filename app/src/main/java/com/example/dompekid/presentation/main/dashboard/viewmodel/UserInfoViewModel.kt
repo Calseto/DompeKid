@@ -16,26 +16,15 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(
+class UserInfoViewModel @Inject constructor(
     private val getUserDataUseCase: GetUserDataUseCase,
-    private val getAllPocketUseCase: GetAllPocketUseCase,
     private val getSharedPrefUseCase: GetSharedPrefUseCase
 ):BaseViewModel(){
 
     private val _userData = MutableLiveData<UserRespons?>()
     val userData: LiveData<UserRespons?> get() = _userData
 
-    private val _listPocket = MutableLiveData<List<PocketDataResponse?>?>()
-    val listPocket: LiveData<List<PocketDataResponse?>?> get() = _listPocket
 
-
-    private suspend fun fetchAllPocketData(token:String){
-        val list = getAllPocketUseCase.getALLPocket(token)
-        if(list!=null)
-            _listPocket.postValue(list)
-        else
-            _listPocket.postValue(list)
-    }
     private suspend fun fetchUserData(token: String){
 
         val userData = getUserDataUseCase.getUserData(token)
@@ -46,18 +35,16 @@ class HomeViewModel @Inject constructor(
             Log.d("Error", "Data User Gagal Diambil")
         }
     }
-    fun updateDataHome(){
+    fun updateData(){
         viewModelScope.launch {
             _loadingState.postValue(true)
             val token = getSharedPrefUseCase.getSharedPref().getToken()
             fetchUserData(token)
-            fetchAllPocketData(token)
         }
     }
 
     override fun resetLiveData() {
         _userData.postValue(null)
-        _listPocket.postValue(null)
         _loadingState.postValue(null)
     }
 }

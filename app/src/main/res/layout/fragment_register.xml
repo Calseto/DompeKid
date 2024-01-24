@@ -80,6 +80,14 @@
         app:layout_constraintStart_toStartOf="@+id/componentEmailLoginContainer"
         app:layout_constraintTop_toBottomOf="@+id/fillProfile" />
 
+    <FrameLayout
+        android:id="@+id/loginProgressbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:visibility="visible"/>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

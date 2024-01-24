@@ -23,6 +23,7 @@ class TransferFragmentBViewModel @Inject constructor(
     val transaction: LiveData<TransactionResponse?> get() = _transaction
 
     fun updateData(transactionRequest: TransactionRequest?){
+        _loadingState.postValue(true)
         viewModelScope.launch {
             val response = postTransactionUseCase.postTransaction(
                 getSharedPrefUseCase.getSharedPref().getToken(),

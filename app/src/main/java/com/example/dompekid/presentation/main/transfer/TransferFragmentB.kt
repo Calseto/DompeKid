@@ -26,10 +26,24 @@ class TransferFragmentB : BaseFragment<FragmentTransferBBinding>() {
         setUpTransferTarget()
         handleTransactionRequest()
         observeViewModel()
+
+        handleLoadingState()
+    }
+
+    private fun handleLoadingState(){
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            if (it==true){
+                openLoadingFragment(binding.progressbar)
+            }
+            else{
+                closeLoadingFragment(binding.progressbar)
+            }
+        }
     }
 
     private fun observeViewModel(){
         viewModel.transaction.observe(viewLifecycleOwner){
+            viewModel.turnOffLoadingState()
             if (it?.statusCode==200){
                 makeToast("Transaksi Berhasil Dilakukan")
                 val action = TransferFragmentBDirections.actionTransferFragmentBToDashboardFragment()

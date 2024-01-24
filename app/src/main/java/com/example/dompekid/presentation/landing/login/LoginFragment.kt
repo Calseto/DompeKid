@@ -1,5 +1,6 @@
 package com.example.dompekid.presentation.landing.login
 
+import android.view.View
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
@@ -18,7 +19,20 @@ class LoginFragment(private val viewModel:LoginViewModel):BaseFragment<FragmentL
     override fun setupView() {
         handleLoginAttempt()
         handleLogin()
+        handleLoadingState()
     }
+
+    private fun handleLoadingState(){
+        viewModel.loadingState.observe(viewLifecycleOwner){
+            if (it==true){
+                openLoadingFragment(binding.loginProgressbar)
+            }
+            else{
+                closeLoadingFragment(binding.loginProgressbar)
+            }
+        }
+    }
+
     fun setLoginNavDes(navFun:()->Unit){
         onClickLogin=navFun
     }
@@ -37,9 +51,11 @@ class LoginFragment(private val viewModel:LoginViewModel):BaseFragment<FragmentL
         viewModel.JWTToken.observe(viewLifecycleOwner){
             if(it!="gagal"&&it!=null){
                 viewModel.saveTokenToSharedPref()
+                makeToast("Login Berhasil")
                 onClickLogin.invoke()
             }
             else if(it=="gagal"){
+                viewModel.turnOffLoadingState()
                 makeToast("Username atau password yang anda masukan salah")
             }
         }
